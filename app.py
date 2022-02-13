@@ -23,11 +23,6 @@ def send_media(path):
     )
 
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
 @app.route('/cut')
 def cutVideo():
     video_url = request.args.get('url')

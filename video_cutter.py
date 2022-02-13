@@ -1,4 +1,3 @@
-import asyncio
 import os
 from time import sleep
 
@@ -19,8 +18,6 @@ def remove_file(path):
 
 @storeInQueue
 def cut_video(url, start_time, end_time):
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
     yt = YouTube(url)
     yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download("./videos")
     file_name = yt.streams.filter(progressive=True, file_extension='mp4').order_by(
